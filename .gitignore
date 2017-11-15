@@ -1,0 +1,13 @@
+# es added for Studio 3
+.idea/misc.xml
+.idea/vcs.xml
+
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
