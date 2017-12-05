@@ -17,6 +17,8 @@ public class TodoActivity extends AppCompatActivity {
 
     public static final String EXTRA_TODO_ID = "todo_id";
 
+    //Any calling activity would call this static method and pass the necessary
+    //key, value data pair in an intent object.
     public static Intent newIntent(Context packageContext, UUID todoId) {
 
         Intent intent = new Intent(packageContext, TodoActivity.class);

@@ -38,7 +38,10 @@ public class TodoListFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_todo_list, container, false);
 
+        //initialises Recycler View
         mTodoRecyclerView = (RecyclerView) view.findViewById(R.id.todo_recycler_view);
+
+        //sets layout of recycler view
         mTodoRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         updateUI();
@@ -57,11 +60,13 @@ public class TodoListFragment extends Fragment {
 
         switch (item.getItemId()){
 
+            //Adding a new Todo
             case R.id.new_todo:
 
                 Todo todo = new Todo();
                 TodoModel.get(getActivity()).addTodo(todo);
 
+                //Starts new instance of TodoActivity by passing intent to startActivity()
                 Intent intent = TodoActivity.newIntent(getActivity(), todo.getId());
                 startActivity(intent);
 
@@ -112,6 +117,9 @@ public class TodoListFragment extends Fragment {
             mTextViewDate = (TextView) itemView.findViewById(R.id.todo_date);
         }
 
+        //This method Starts new instance of TodoActivity by passing intent to startActivity()
+        //when an existing todo is clicked
+        //TodoActivity shows details stored for todo stored at mTodo index
         @Override
         public void onClick(View view) {
             // have a Toast for now
