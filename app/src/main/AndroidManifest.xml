@@ -16,10 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".TodoActivity"
-            android:parentActivityName=".TodoListActivity">
-        </activity>
+            android:name=".TodoPagerActivity"
+            android:parentActivityName=".TodoListActivity"
+            ></activity>
     </application>
 
 </manifest>

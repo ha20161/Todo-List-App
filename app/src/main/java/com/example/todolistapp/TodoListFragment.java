@@ -67,7 +67,9 @@ public class TodoListFragment extends Fragment {
                 TodoModel.get(getActivity()).addTodo(todo);
 
                 //Starts new instance of TodoActivity by passing intent to startActivity()
-                Intent intent = TodoActivity.newIntent(getActivity(), todo.getId());
+             //   Intent intent = TodoActivity.newIntent(getActivity(), todo.getId());
+
+               Intent intent = TodoPagerActivity.newIntent(getActivity(), todo.getId());
                 startActivity(intent);
 
                 return true;
@@ -125,7 +127,8 @@ public class TodoListFragment extends Fragment {
             // have a Toast for now
             Toast.makeText(getActivity(), mTodo.getTitle() + " clicked", Toast.LENGTH_SHORT).show();
 
-            Intent intent = TodoActivity.newIntent(getActivity(), mTodo.getId());
+         //   Intent intent = TodoActivity.newIntent(getActivity(), mTodo.getId());
+            Intent intent = TodoPagerActivity.newIntent(getActivity(), mTodo.getId());
             startActivity(intent);
         }
 
