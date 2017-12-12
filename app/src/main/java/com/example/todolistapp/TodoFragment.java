@@ -7,6 +7,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -49,6 +52,7 @@ public class TodoFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
 
         /*
             Fragment accessing the intent from the hosting Activity as in the following code snippet
@@ -116,4 +120,6 @@ public class TodoFragment extends Fragment {
 
         return view;
     }
+
+
 }

@@ -4,10 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/new_todo"
-        android:icon="@android:drawable/ic_menu_add"
+        android:id="@+id/delete_todo"
+        android:icon="@drawable/ic_menu_delete"
         android:title="@string/new_todo"
         app:showAsAction="ifRoom|withText" />
-
-
+    
 </menu>

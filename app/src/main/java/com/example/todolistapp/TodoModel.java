@@ -61,4 +61,9 @@ public class TodoModel {
         mTodoList.add(todo);
 
     }
+
+    public void removeTodo(UUID todo){
+
+        mTodoList.remove(todo);
+    }
 }

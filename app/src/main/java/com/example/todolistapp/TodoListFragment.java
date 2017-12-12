@@ -5,17 +5,21 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.todolistapp.R.*;
 
 /**
  * Created by Haleema on 15/11/2017.
@@ -36,9 +40,9 @@ public class TodoListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_todo_list, container, false);
+        View view = inflater.inflate(layout.fragment_todo_list, container, false);
 
-        mTodoRecyclerView = (RecyclerView) view.findViewById(R.id.todo_recycler_view);
+        mTodoRecyclerView = (RecyclerView) view.findViewById(id.todo_recycler_view);
         mTodoRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         updateUI();
@@ -57,7 +61,7 @@ public class TodoListFragment extends Fragment {
 
         switch (item.getItemId()){
 
-            case R.id.new_todo:
+            case id.new_todo:
 
                 Todo todo = new Todo();
                 TodoModel.get(getActivity()).addTodo(todo);
@@ -104,17 +108,18 @@ public class TodoListFragment extends Fragment {
 
         public TodoHolder(LayoutInflater inflater, ViewGroup parent){
 
-            super(inflater.inflate(R.layout.list_item_todo, parent, false));
+            super(inflater.inflate(layout.list_item_todo, parent, false));
 
             itemView.setOnClickListener(this);
 
-            mTextViewTitle = (TextView) itemView.findViewById(R.id.todo_title);
-            mTextViewDate = (TextView) itemView.findViewById(R.id.todo_date);
+            mTextViewTitle = (TextView) itemView.findViewById(id.todo_title);
+            mTextViewDate = (TextView) itemView.findViewById(id.todo_date);
+
         }
 
         @Override
         public void onClick(View view) {
-            // have a Toast for now
+
             Toast.makeText(getActivity(), mTodo.getTitle() + " clicked", Toast.LENGTH_SHORT).show();
 
             Intent intent = TodoActivity.newIntent(getActivity(), mTodo.getId());
