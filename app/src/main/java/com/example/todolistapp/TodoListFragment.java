@@ -1,7 +1,10 @@
 package com.example.todolistapp;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +49,27 @@ public class TodoListFragment extends Fragment {
         mTodoRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         updateUI();
+
+        FloatingActionButton newTodo;
+
+
+        newTodo = (FloatingActionButton) view.findViewById(R.id.addTodo);
+        newTodo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getActivity(), "Add new Todo", Toast.LENGTH_SHORT).show();
+                Todo todo = new Todo();
+                TodoModel.get(getActivity()).addTodo(todo);
+                //Starts new instance of TodoActivity by passing intent to startActivity()
+                //Intent intent = TodoActivity.newIntent(getActivity(), todo.getId());
+
+                Intent intent = TodoPagerActivity.newIntent(getActivity(), todo.getId());
+                startActivity(intent);
+
+            }
+
+        });
 
         return view;
     }

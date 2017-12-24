@@ -61,4 +61,9 @@ public class TodoModel {
         mTodoList.add(todo);
 
     }
+
+    public void deleteTodo(Todo todo){
+
+        mTodoList.remove(todo);
+    }
 }
